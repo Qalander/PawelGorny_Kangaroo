@@ -20,7 +20,6 @@
 
 #include <time.h>
 #include <string>
-#include <cstdint> 
 #ifdef WIN64
 #include <windows.h>
 #endif
