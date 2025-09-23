@@ -30,7 +30,7 @@ OBJET = $(addprefix $(OBJDIR)/, \
       Network.o Merge.o PartMerge.o)
 endif
 CXX        = g++
-CUDA       = /usr/local/cuda-13
+CUDA       = /usr/local/cuda-12.8
 CXXCUDA    = /usr/bin/g++-11
 NVCC       = $(CUDA)/bin/nvcc
 ifdef gpu
