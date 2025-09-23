@@ -326,7 +326,7 @@ $ g++ -v
 gcc version 7.3.0 (Ubuntu 7.3.0-27ubuntu1~18.04)
 $ make all (for build without CUDA support)
 or
-$ make gpu=1 ccap=20 all
+$ make gpu=1 ccap=89 all
 ```
 Runnig Kangaroo (Intel(R) Xeon(R) CPU, 8 cores,  @ 2.93GHz, Quadro 600 (x2))
 
