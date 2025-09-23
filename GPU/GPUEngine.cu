@@ -320,11 +320,17 @@ void GPUEngine::PrintCudaInfo() {
 
     cudaDeviceProp deviceProp;
     cudaGetDeviceProperties(&deviceProp,i);
-    printf("GPU #%d %s (%dx%d cores) (Cap %d.%d) (%.1f MB) (%s)\n",
-      i,deviceProp.name,deviceProp.multiProcessorCount,
-      _ConvertSMVer2Cores(deviceProp.major,deviceProp.minor),
-      deviceProp.major,deviceProp.minor,(double)deviceProp.totalGlobalMem / 1048576.0,
-      sComputeMode[deviceProp.computeMode]);
+   
+int cm = 0;
+cudaDeviceGetAttribute(&cm, cudaDevAttrComputeMode, i);
+int cmIdx = (cm >= 0 && cm <= 3) ? cm : 4; // 4 = "Unknown"
+
+printf("GPU #%d %s (%dx%d cores) (Cap %d.%d) (%.1f MB) (%s)\n",
+  i,deviceProp.name,deviceProp.multiProcessorCount,
+  _ConvertSMVer2Cores(deviceProp.major,deviceProp.minor),
+  deviceProp.major,deviceProp.minor,(double)deviceProp.totalGlobalMem / 1048576.0,
+  sComputeMode[cmIdx]);
+
 
   }
 
